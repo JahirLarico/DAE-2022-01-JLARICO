@@ -1,4 +1,4 @@
-"""lab01 URL Configuration
+"""lab02 URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.0/topics/http/urls/
@@ -14,17 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-
+from django.urls import include,path
 urlpatterns = [
-    path('admin/', admin.site.urls),
-]
-from django.http import HttpResponse
-def home(request):
-    return HttpResponse("<h1><center>Hola mundo Jahir Larico</center><h1>")
-urlpatterns=[
-    path('',home),
-    path('admin/',admin.site.urls),
-    #source venv/scripts/activate
-    #python manage.py runserver
+    path('admin/', admin.site.urls,name="enviar"),
+    path('encuesta/',include('encuesta.urls')),
+    path('operaciones/',include('operaciones.urls')),
+    path('volumen/',include('volumen.urls')),
 ]

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documesnt</title>
+</head>
+<body>
+    <div>
+        <form action="{% url 'operaciones:resolver' %}" method="POST">
+            {% csrf_token %}
+            <p>Primer Numero</p>
+            <input type="number" name="primer_numero">
+            <p>Segundo Numero</p>
+            <input type="number" name="segundo_numero">
+            <p>Seleeciones Operacion</p>
+            <select name="operacion" id="">
+                <option value="Suma">Suma</option>
+                <option value="Resta" selected="selected">Resta</option>
+                <option value="Multiplicacion">Multiplicacion</option>
+                <option value="Division">Division</option>
+            </select>
+            <input type="submit" name="submit" value="enviar">
+        </form>
+    </div>
+    
+</body>
+</html>
