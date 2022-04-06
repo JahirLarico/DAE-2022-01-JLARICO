@@ -1,9 +1,10 @@
 <h1>{{ pregunta.pregunta_texto }}</h1>
 <ul>
     {% for opcion in pregunta.opcion_set.all %}
-        <li>{{ opcion.opcion_texto }}--{{ opcion.votos }} voto{{ opcion.voto|pluralize }}</li>
+        <li>{{ opcion.opcion_texto }}--{{ opcion.votos }} voto{{ opcion.votos|pluralize }}
+        
     {% endfor %}
+    <br>
+    <button><a href="/encuesta/{{pregunta.id}}/resultados">Votar</a></button>
 </ul>
-
-<a href="{% url 'encuesta:detalle' pregunta.id %}">Votar de nuevo?</a>
 <a href="{% url 'encuesta:index' %}">Ver preguntas</a>

@@ -3,13 +3,13 @@
 {% if error_message %}
 <p><strong>{{error_message}}</strong></p>
 {% endif %}
-<form action="{% url 'encuesta.votar' pregunta.id %}" method="POST">
+<form action="{% url 'encuesta:votar' pregunta.id %}" method="POST">
     {% csrf_token %}
     {% for opcion in pregunta.opcion_set.all %}
-        <input type="radio" name="opcion" id="opcion{{ forloop.counter }}" value="{opcion.id}">
+        <input type="radio" name="opcion" id="opcion{{ forloop.counter }}" value="{{opcion.id}}">
         <label for="opcion{{ forloop.counter }}}">{{opcion.opcion_texto}} </label><br>
     {% endfor %}
     <input type="submit" value="Votar">
 </form>
 <br>
-<a href="{% url 'encuesta.index' %}">Ver preguntas</a>
+<a href="/encuesta">Ver preguntas</a>
