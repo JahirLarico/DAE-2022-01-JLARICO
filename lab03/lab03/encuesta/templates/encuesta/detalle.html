@@ -5,5 +5,5 @@
     {% endfor %}
 </ul>
 
-<a href="{% url 'encuesta:detalle' pregunta.id %}">Votar de nuevo?</a>
+<a href="/encuesta/{{pregunta.id}}/resultados">Votar de nuevo?</a>
 <a href="{% url 'encuesta:index' %}">Ver preguntas</a>

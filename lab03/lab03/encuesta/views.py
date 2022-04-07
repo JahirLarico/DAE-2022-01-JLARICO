@@ -1,4 +1,4 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import redirect, render,get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from .models import Pregunta, Opcion
@@ -17,12 +17,12 @@ def votar(request, pregunta_id):
     except (KeyError, Opcion.DoesNotExist):
         return render(request, 'encuesta/detalle.html', {
             'pregunta': pregunta,
-            'error_message': "No se selecciono ninguna opcion",
+            'error_message': "No seleccionaste ninguna opcion",
         })
     else:
         selected_opcion.votos += 1
         selected_opcion.save()
-        return HttpResponseRedirect(reverse('encuesta:resultados', args=(pregunta.id,)))
+        return HttpResponseRedirect("/encuesta/"+str(pregunta.id))
 def resultados(request, pregunta_id):
     pregunta = get_object_or_404(Pregunta, pk=pregunta_id)
     return render(request, 'encuesta/resultados.html', {'pregunta': pregunta})
