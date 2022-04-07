@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-r4i#v3x)o)e=n3)kh5y8hw-_v0vtiz)zvv2%sjv$6d&1llq1sg'
+SECRET_KEY = 'django-insecure-b*oo4x$2!ze#-d17km71a(=m6^xzl*ib#0z3&yumy*f@&v=(15'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'recetas.apps.RecetasConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -75,7 +76,7 @@ WSGI_APPLICATION = 'lab04.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'recetas',
         'USER': 'root',
         'PASSWORD': '',
