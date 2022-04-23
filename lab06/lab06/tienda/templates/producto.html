@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Descripcion del producto</h1>
+<h2>Nombre del producto: {{producto.nombre}}</h2>
+<h2>Precio del producto: {{producto.precio}}</h2>
+<h2>Cantidad del producto: {{producto.stock}}</h2>
+<button><a href="/tienda">Volver</a></button>
+
+{% endblock %}
