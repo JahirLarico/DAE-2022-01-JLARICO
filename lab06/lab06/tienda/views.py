@@ -1,6 +1,7 @@
 from multiprocessing import context
 from django.shortcuts import render,get_object_or_404
 from .models import *
+from tienda.carrito import Cart
 # Create your views here.
 
 def index (request):
@@ -29,3 +30,25 @@ def categoria(request,categoria_id):
         'categorias':categorias
     }
     return render(request,'categoria.html',context)
+
+def carrito(request):
+    return render(request,'carrito.html')
+
+def agregarCarrito(request,producto_id):
+    objProducto = Producto.objects.get(id=producto_id)
+    carritoProducto = Cart(request)
+    carritoProducto.add(objProducto,1)
+    return render(request,'carrito.html')
+
+def eliminarProductoCarrito(request,producto_id):
+    objProducto = Producto.objects.get(id=producto_id)
+    carritoProducto = Cart(request)
+    carritoProducto.remove(objProducto)
+    return render(request,'carrito.html')
+
+def limpiarCarrito(request):
+    CarritoProducto = Cart(request)
+    CarritoProducto.clear()
+    return render(request,'carrito.html')
+
+
