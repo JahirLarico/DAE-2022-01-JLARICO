@@ -1,0 +1,8 @@
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('',views.IndexView.as_view(),name='index'),
+    path('series',views.SeriesView.as_view(),name='series'),
+    path('series/<int:serie_id>',views.SerialDetailView.as_view()),
+]
